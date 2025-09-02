@@ -35,6 +35,7 @@ It consolidates module summaries, quiz answers, CLI commands, and key concepts.
 ```bash
 # Query products
 curl -X GET 'http://127.0.0.1:5000/products' -H 'accept: application/json'
+'''
 
 ## 🧩 Module 3: Serverless Overview
 
