@@ -36,7 +36,7 @@ It consolidates module summaries, quiz answers, CLI commands, and key concepts.
 # Query products
 curl -X GET 'http://127.0.0.1:5000/products' -H 'accept: application/json'
 
-🧩 Module 3: Serverless Overview
+## 🧩 Module 3: Serverless Overview
 
 Serverless: build/run apps without managing servers.
 
@@ -50,7 +50,7 @@ BaaS: backend as a service (DBs, auth, storage).
 
 Stacks: AWS Lambda, GCP Functions, Azure Functions, IBM Cloud Functions.
 
-🧩 Module 4: Create & Deploy Microservices
+## 🧩 Module 4: Create & Deploy Microservices
 
 IBM Cloud Code Engine: fully managed → apps, builds, jobs.
 
@@ -72,7 +72,7 @@ ibmcloud ce app create --name helloworld \
   --image us.icr.io/mynamespace/hello_repo \
   --registry-secret myregistry
 
-🧩 Optional: OpenShift & Service Mesh
+## 🧩 Optional: OpenShift & Service Mesh
 
 OpenShift = Kubernetes distribution + extra tools.
 
@@ -80,7 +80,7 @@ Automates build pipelines, pushes to registry.
 
 Service mesh (Istio): provides traffic shifting, mTLS security, telemetry.
 
-🛠️ Final Project Workflow
+## 🛠️ Final Project Workflow
 Deploy Product Details (Python, port 5000)
 ibmcloud ce app create \
   --name prodlist \
