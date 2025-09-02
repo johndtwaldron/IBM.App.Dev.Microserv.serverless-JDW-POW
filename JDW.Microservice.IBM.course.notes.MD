@@ -61,9 +61,11 @@ Buildpacks: auto-detect source, create build plan.
 
 Typical Dockerfile start:
 
+```bash
 FROM python:3.9
 COPY . /app
 CMD ["python", "app.py"]
+```
 
 CLI example:
 
