@@ -32,8 +32,10 @@ It consolidates module summaries, quiz answers, CLI commands, and key concepts.
 - GraphQL: query language → return exactly what you need.  
 
 **Common cURL**  
+```bash
 # Query products
 curl -X GET 'http://127.0.0.1:5000/products' -H 'accept: application/json'
+```
 
 ## 🧩 Module 3: Serverless Overview
 
@@ -69,9 +71,11 @@ CMD ["python", "app.py"]
 
 CLI example:
 
+```bash
 ibmcloud ce app create --name helloworld \
   --image us.icr.io/mynamespace/hello_repo \
   --registry-secret myregistry
+```
 
 ## 🧩 Optional: OpenShift & Service Mesh
 
@@ -83,6 +87,7 @@ Service mesh (Istio): provides traffic shifting, mTLS security, telemetry.
 
 ## 🛠️ Final Project Workflow
 Deploy Product Details (Python, port 5000)
+```bash
 ibmcloud ce app create \
   --name prodlist \
   --image us.icr.io/${SN_ICR_NAMESPACE}/prodlist \
@@ -90,7 +95,9 @@ ibmcloud ce app create \
   --port 5000 \
   --build-context-dir products_list \
   --build-source https://github.com/ibm-developer-skills-network/dealer_evaluation_backend.git
+```
 
+```bash
 Deploy Dealer Pricing (Node.js, port 8080)
 ibmcloud ce app create \
   --name dealerdetails \
@@ -99,7 +106,9 @@ ibmcloud ce app create \
   --port 8080 \
   --build-context-dir dealer_details \
   --build-source https://github.com/ibm-developer-skills-network/dealer_evaluation_backend.git
+```
 
+```bash
 Deploy Frontend (port 5001)
 ibmcloud ce app create \
   --name frontend \
@@ -107,4 +116,4 @@ ibmcloud ce app create \
   --registry-secret icr-secret \
   --port 5001 \
   --build-source .
-
+```
