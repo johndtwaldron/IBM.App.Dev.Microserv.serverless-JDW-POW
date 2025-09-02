@@ -38,17 +38,17 @@ curl -X GET 'http://127.0.0.1:5000/products' -H 'accept: application/json'
 
 ## 🧩 Module 3: Serverless Overview
 
-Serverless: build/run apps without managing servers.
+- Serverless: build/run apps without managing servers.
 
-Built-in high availability, fault tolerance, pay-per-request.
+- Built-in high availability, fault tolerance, pay-per-request.
 
-Constraints: latency, debugging complexity, no state persistence.
+- Constraints: latency, debugging complexity, no state persistence.
 
-FaaS: run functions on events (subset of serverless).
+- FaaS: run functions on events (subset of serverless).
 
-BaaS: backend as a service (DBs, auth, storage).
+- BaaS: backend as a service (DBs, auth, storage).
 
-Stacks: AWS Lambda, GCP Functions, Azure Functions, IBM Cloud Functions.
+- Stacks: AWS Lambda, GCP Functions, Azure Functions, IBM Cloud Functions.
 
 ## 🧩 Module 4: Create & Deploy Microservices
 
