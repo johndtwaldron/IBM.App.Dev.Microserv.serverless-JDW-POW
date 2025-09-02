@@ -1,88 +1,81 @@
-# IBM Application Development using Microservices & Serverless (PoW)
+# IBM.App.Dev.Microserv.serverless-JDW-POW
 
-This repo documents my completion of the **IBM DevOps Microservices & Serverless course final project**.  
-It serves as **Proof-of-Work (PoW)** for deploying microservices on IBM Cloud Code Engine.
-
----
-
-## 📌 Part A: Backend Deployments
-
-### 1. Product Details Microservice (Python, port 5000)
-- ✅ Deployed with Code Engine from repo source (`products_list`).
-- URL:  
-  `https://prodlist.1ztvmf8ytzw9.us-south.codeengine.appdomain.cloud/`
-- Screenshot:  
-  ![Product Details Deployment](product_details_deploy.png)
-
-### 2. Dealer Details Microservice (Node.js, port 8080)
-- ✅ Deployed with Code Engine from repo source (`dealer_details`).
-- URL:  
-  `https://dealerdetails.1ztvmf8ytzw9.us-south.codeengine.appdomain.cloud/`
-- Screenshot:  
-  ![Dealer Details Deployment](dealer_details_deploy.png)
+📌 Proof-of-Work repo documenting my completion of the **IBM Application Development using Microservices and Serverless** course and final project on IBM Cloud Code Engine.
 
 ---
 
-## 📌 Part B: Frontend Deployment
+## 🎓 Certification
 
-### 3. Cloned frontend repo
-- Source: `https://github.com/ibm-developer-skills-network/dealer_evaluation_frontend.git`
-- Screenshot:  
-  ![Git Clone](git_clone.png)
+- **Coursera Certificate (Verify):** [0HXZ1SX88JQ1](https://www.coursera.org/account/accomplishments/verify/0HXZ1SX88JQ1)  
+- **Credly Badge:** [Verify on Credly](https://www.credly.com/badges/2eb859b9-08fc-426d-953a-90297f143016)  
 
-### 4. Updated index.html with backend URLs
-- `produrl` → Product Details URL  
-- `dealerurl` → Dealer Details URL  
-- Screenshot:  
-  ![Index URL Changes](index_urlchanges.png)
+![Badge Screenshot](application-development-using-microservices-and-ser.png)
 
-### 5. Frontend Deployed (port 5001)
-- ✅ Deployed with Code Engine from local source.  
-- URL:  
-  `https://frontend.1ztvmf8ytzw9.us-south.codeengine.appdomain.cloud/`
-- Screenshot:  
-  ![Frontend Deployment](frontend_deploy.png)
+PDF copy of my issued certificate: [jdw-cert-IBMDesign20250902-30-b80wo7.pdf](jdw-cert-IBMDesign20250902-30-b80wo7.pdf)
 
 ---
 
-## 📌 Functional Proof (Screens from live app)
+## 📂 Project Overview
 
-- **Homepage loaded with products**  
-  ![Homepage](homepage.png)
+This project deployed **three microservices** on IBM Cloud Code Engine:
 
-- **Product + Dealers list populated**  
-  ![Product Dealers](product_dealer.png)
+1. **Product Details (Python)**  
+   Endpoint: `/products` → returns available products.
 
-- **Dealer-specific price displayed**  
-  ![Dealer Price](product_dealer_price.png)
+2. **Dealer Pricing (Node.js)**  
+   Endpoint: `/dealers` → returns dealer pricing.
 
-- **All dealers’ prices displayed**  
-  ![All Dealers Prices](product_all_dealers_prices.png)
-
----
-
-## 🏁 Outcome
-
-Successfully deployed a **Product Price Comparison Application** using **IBM Cloud Code Engine**, completing the course’s final project.
-
-This repo demonstrates:
-- Deploying microservices (Python Flask + Node.js Express) from GitHub source into Code Engine.  
-- Building and running containers with ports 5000, 8080, and 5001.  
-- Integrating frontend with backend microservices via public endpoints.  
-- Validating functionality end-to-end with screenshots.  
+3. **Frontend (HTML/JS)**  
+   Integrated the two backends to build a live price comparison tool.
 
 ---
 
-📂 Repository Structure:
+## 🖼️ Screenshots
 
-IBM.App.Dev.Microserv.serverless-JDW-POW/
-├── product_details_deploy.png
-├── dealer_details_deploy.png
-├── git_clone.png
-├── index_urlchanges.png
-├── frontend_deploy.png
-├── homepage.png
-├── product_dealer.png
-├── product_dealer_price.png
-├── product_all_dealers_prices.png
-└── README.md
+### Backend Deployments
+- Product Details → `product_details_deploy.png`
+- Dealer Details → `dealer_details_deploy.png`
+
+### Frontend Deployments
+- Git Clone → `git_clone.png`
+- Index HTML updates → `index_urlchanges.png`
+- Frontend Deploy → `frontend_deploy.png`
+
+### Functional Tests
+- Homepage → `homepage.png`
+- Product & Dealers → `product_dealer.png`
+- Product + Dealer + Price → `product_dealer_price.png`
+- All Dealers Prices → `product_all_dealers_prices.png`
+
+---
+
+## 🛠️ Commands & Workflow
+
+Key IBM Cloud CLI commands used:
+
+```bash
+# Deploy Product Details
+ibmcloud ce app create \
+  --name prodlist \
+  --image us.icr.io/${SN_ICR_NAMESPACE}/prodlist \
+  --registry-secret icr-secret \
+  --port 5000 \
+  --build-context-dir products_list \
+  --build-source https://github.com/ibm-developer-skills-network/dealer_evaluation_backend.git
+
+# Deploy Dealer Pricing
+ibmcloud ce app create \
+  --name dealerdetails \
+  --image us.icr.io/${SN_ICR_NAMESPACE}/dealerdetails \
+  --registry-secret icr-secret \
+  --port 8080 \
+  --build-context-dir dealer_details \
+  --build-source https://github.com/ibm-developer-skills-network/dealer_evaluation_backend.git
+
+# Deploy Frontend
+ibmcloud ce app create \
+  --name frontend \
+  --image us.icr.io/${SN_ICR_NAMESPACE}/frontend \
+  --registry-secret icr-secret \
+  --port 5001 \
+  --build-source .
